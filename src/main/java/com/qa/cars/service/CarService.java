@@ -12,6 +12,10 @@ public interface CarService {
 
     Car getById(int id);
 
+    List<Car> getByName(String name);
+
+    List<Car> getByCountry(String name);
+
     Car updateCar(int id, String name, Integer yearEst, String country);
 
     public Car delete(int id);

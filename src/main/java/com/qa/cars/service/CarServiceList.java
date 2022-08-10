@@ -33,6 +33,24 @@ public class CarServiceList implements CarService {
     }
 
     @Override
+    public List<Car> getByName(String name) {
+        List<Car> matches = new ArrayList<>();
+        for (Car c : this.cars) {
+            if (c.getName().equals(name)) matches.add(c);
+        }
+        return matches;
+    }
+
+    @Override
+    public List<Car> getByCountry(String country) {
+        List<Car> matches = new ArrayList<>();
+        for (Car c : this.cars) {
+            if (c.getCountry().equals(country)) matches.add(c);
+        }
+        return matches;
+    }
+
+    @Override
     public Car updateCar(int id, String name, Integer yearEst, String country){
         Car activeCar = this.cars.get(id);
         if (name != null && !name.isBlank()) activeCar.setName(name);

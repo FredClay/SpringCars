@@ -36,6 +36,16 @@ public class CarController {
         return new ResponseEntity<Car>(this.service.getById(id), HttpStatus.OK);
     }
 
+    @GetMapping("/getByName/{name}")
+    public ResponseEntity<List<Car>> getByName(@PathVariable String name) {
+        return new ResponseEntity<List<Car>>(this.service.getByName(name), HttpStatus.OK);
+    }
+
+    @GetMapping("/getByCountry/{country}")
+    public ResponseEntity<List<Car>> getByCountry(@PathVariable String country) {
+        return new ResponseEntity<List<Car>>(this.service.getByCountry(country), HttpStatus.OK);
+    }
+
     @PatchMapping("/update/{id}")
     public ResponseEntity<Car> updateCar(@PathVariable int id, @PathParam("name") String name, @PathParam("yearEst") Integer yearEst,
                           @PathParam("country") String country) {

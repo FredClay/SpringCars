@@ -11,6 +11,7 @@ import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class CarController {
 
     private CarService service;

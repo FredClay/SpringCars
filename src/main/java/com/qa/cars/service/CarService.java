@@ -16,6 +16,8 @@ public interface CarService {
 
     List<Car> getByCountry(String name);
 
+    List<Car> getEnglishTeams();
+
     Car updateCar(int id, String name, Integer yearEst, String country);
 
     public Car delete(int id);

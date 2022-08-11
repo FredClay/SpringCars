@@ -40,6 +40,9 @@ public class CarServiceDB implements CarService{
     public List<Car> getByCountry(String country) {return this.repo.findCarsByCountryJPQL(country);}
 
     @Override
+    public List<Car> getEnglishTeams() {return this.repo.findEnglishTeamsJPQL();}
+
+    @Override
     public Car updateCar(int id, String name, Integer yearEst, String country) {
         Car activeCar = this.repo.findById(id).get();
         if (name != null && !name.isBlank()) activeCar.setName(name);

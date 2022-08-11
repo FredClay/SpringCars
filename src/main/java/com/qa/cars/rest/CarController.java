@@ -47,6 +47,11 @@ public class CarController {
         return new ResponseEntity<List<Car>>(this.service.getByCountry(country), HttpStatus.OK);
     }
 
+    @GetMapping("/getEnglish")
+    public ResponseEntity<List<Car>> getEnglishTeams() {
+        return new ResponseEntity<List<Car>>(this.service.getEnglishTeams(), HttpStatus.OK);
+    }
+
     @PatchMapping("/update/{id}")
     public ResponseEntity<Car> updateCar(@PathVariable int id, @PathParam("name") String name, @PathParam("yearEst") Integer yearEst,
                           @PathParam("country") String country) {

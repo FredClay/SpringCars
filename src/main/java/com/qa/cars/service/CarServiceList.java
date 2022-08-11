@@ -51,6 +51,15 @@ public class CarServiceList implements CarService {
     }
 
     @Override
+    public List<Car> getEnglishTeams() {
+        List<Car> matches = new ArrayList<>();
+        for (Car c : this.cars) {
+            if (c.getCountry().equals("England")) matches.add(c);
+        }
+        return matches;
+    }
+
+    @Override
     public Car updateCar(int id, String name, Integer yearEst, String country){
         Car activeCar = this.cars.get(id);
         if (name != null && !name.isBlank()) activeCar.setName(name);

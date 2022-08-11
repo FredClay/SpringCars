@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 public class Car {
@@ -36,6 +37,20 @@ public class Car {
     public Car() {
         super();
         // Default Constructor.
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Car car = (Car) obj;
+        return yearEst == car.yearEst && Objects.equals(id, car.id)
+                && Objects.equals(name, car.name) && Objects.equals(country, car.country);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, yearEst, country);
     }
 
     public Integer getId() {
